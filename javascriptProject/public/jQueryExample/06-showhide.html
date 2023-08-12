@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- jQuery 파일을 다운받아 로드하는 방법 -->
+		<!-- <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+		
+		<!-- CDN(Content Delivery Network: 콘텐츠 전송 네트워크)을 이용하여 로드하는 방법 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0min.js"></script> -->
+		
+		<script type="text/javascript">
+			$(function(){
+				/* show() / hide() / toggle() */
+				// 아이디 sh의 input의 0번째
+				$("#sh > input:eq(0)").click(function(){
+					// 아이디 sh의 div를 화면에 보이기
+					$("#sh > div").show();
+				});
+				
+				// div 화면에서 숨기기
+				$("#sh > input:eq(1)").click(function(){
+					$("#sh > div").hide();
+				});
+				
+				// div가 show인지 hide인지에 따라 상태를 달라지게 하는 것
+				$("#sh > input:eq(2)").click(function(){
+					// 1000이 1초 , 2초뒤에 화면에 보이거나 숨기게하겠다 (스르륵 등장!, 위에서 아래로)
+					$("#sh > div").toggle(2000);
+				});
+				
+				/* fadeIn() / fadeOut() / fadeToggle() */
+				// fadeIn() : 2초뒤에 스르륵 등장! 위에서 아래로X 전체가 스르륵 나옴
+				$("#fade > input:eq(0)").click(function(){
+					$("#fade > div").fadeIn(2000);
+				});
+				
+				// fadeOut() : 2초뒤에 스르륵 퇴장
+				$("#fade > input:eq(1)").click(function(){
+					$("#fade > div").fadeOut(2000);
+				});
+				
+				// fadeToggle() : div가 나타나있으면 스르륵 없어지고 div가 없으면 스르륵 나타남 2초뒤에
+				$("#fade > input:eq(2)").click(function(){
+					$("#fade > div").fadeToggle(2000);
+				});
+				
+				/* slideDown() / slideUp / slideToggle() */
+				// slideDown() : 위에서 아래로 슬라이드로 화면에 div가 나타남
+				$("#slide > input:eq(0)").click(function(){
+					$("#slide > div").slideDown(2000);
+				});
+				
+				// slideUp() : 아래서 위로 슬라이드로 화면에서 사라짐
+				$("#slide > input:eq(1)").click(function(){
+					$("#slide > div").slideUp(2000);
+				});
+				
+				// sildeToggle() : div의 상태에 따라 슬라이드로 나타나거나 사라짐
+				$("#slide > input:eq(2)").click(function(){
+					$("#slide > div").slideToggle(2000);
+				});
+			})
+		</script>
+	</head>
+	
+	<body>
+		<h1>show/hide</h1>
+		<div id="sh">
+			<input type="button" value="보이기"/>
+			<input type="button" value="숨기기"/>
+			<input type="button" value="토글"/>
+			<div>
+				<img src="../image/1.jpg" width="300px" height="200px"/>
+			</div>
+		</div>
+		
+		<h1>fadeIn/fadeOut</h1>
+		<div id ="fade">
+			<input type="button" value="보이기"/>
+			<input type="button" value="숨기기"/>
+			<input type="button" value="페이드 토글"/> 
+			<div>
+				<img src="../image/2.jpg" width="300px" height="200px"/>
+			</div>
+		</div>
+		
+		<h1>slideDown/slideUp</h1>
+		<div id ="slide">
+			<input type="button" value="보이기"/>
+			<input type="button" value="숨기기"/>
+			<input type="button" value="슬라이드 토글"/> 
+			<div>
+				<img src="../image/3.jpg" width="300px" height="200px"/>
+			</div>
+		</div>
+	</body>
+</html>

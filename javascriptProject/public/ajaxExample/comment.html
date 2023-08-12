@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- jQuery 파일을 다운받아 로드하는 방법 -->
+		<!-- <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+		
+		<!-- CDN(Content Delivery Network: 콘텐츠 전송 네트워크)을 이용하여 로드하는 방법 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0min.js"></script> -->
+		
+		<!-- 공통 css -->
+		<link rel="stylesheet" type="text/css" href="../css/reset.css"/>
+		
+		<script type="text/javascript">
+			
+			// 내용을 출력하기 위한 함수
+			let num = 0;
+			
+			function template(num, writer, datetime, content){
+				// $ul은 ul태그
+				let $ul = $("#comment_list");
+				
+				// $element는 li태그와 하위 태그를 복사한 것, 아이디는 삭제하고 복사(아이디는 유일값이니까!)
+				let $element = $("#item-template").clone().removeAttr('id');
+				
+				// 속성 추가 : data-는 사용자 정의 속성 num은 임의 이름, 추가할 속성이 num인데 사용자가 맘대로 지정한거임
+				// num은 전역변수 num이고 번호를 세기 위해서 사용
+				$element.attr("data-num",num);
+				
+				// $element 다음 요소인 클래스가 item-name(스팬태그)에 writer를 넣는당.
+				$element.find('.item-name').html(writer);
+				$element.find('.item-data').html(datetime);
+				$element.find('.item-content').html(content);
+				
+				// ul태그에 복제한 li 연결~~
+				$ul.append($element);
+			}
+			
+				// 댓글 저장하기 누르면 작성자 댓글내용 초기화하는 함수
+				function dataReset(){
+					// 폼요소는 val로 접근 다른 태그는 html()
+					$("#user_name").val('');
+					$("#comment").val('');
+					$("#user_name").focus();
+				}
+			
+				$(function(){
+					// 함수명 getJSON , 받아오는 방식 get, 응답받을 데이터타입JSON
+					$.getJSON("../ajax/comment/comment_list.json",function(data){
+						let item = data.comment.item;
+						
+						// 반복문으로 JSON 파일의 값을 가져옴
+						for(let i=0; i < item.length; i++){
+							// 템플릿 함수에서 사용할 num, 카운트
+							num = item[i].num; 
+							let writer = item[i].writer;
+							let content = item[i].content;
+							let datetime = item[i].datetime;
+							
+							// 템플릿 함수 호출
+							template(num, writer, datetime, content);
+							
+						}
+						// item[0].num 은 4 , 다음 댓글이 달리면 5번으로 출력되야하기때문에 num을 4로 바꿈
+						num = item[0].num;
+					}).fail(function(xhr, textStatus, errorThrown){
+						// alert("댓글 목록을 불러오는데 실패하였습니다. 나중에 다시 시도해주세요.");
+						alert(textStatus + " (HTTP-" + xhr.status + " / " + errorThrown + ")"); // 디버깅을 위해 작성
+					});
+					
+					// 댓글 내용 저장 이벤트
+					// 액션을 사용하지 않았기때문에 전송되지않도록 false
+					$("#comment_form").submit(function(){
+						
+						return false;
+					})
+					
+				}) // 끗
+		</script>
+	</head>
+	
+	<body>
+		<div id="container">
+			<h1>jQuery Comment</h1>
+			<div id="comment_write">
+				<form id="comment_form">
+					<div>
+						<label for="user_name">작성자</label>
+						<input type="text" name="user_name" id="user_name">
+						<input type="submit" value="저장하기">
+					</div>
+					<div>
+						<label for="comment">덧글 내용</label>
+						<textarea name="comment" id="comment"></textarea>
+					</div>
+				</form>
+			</div>
+			
+			<ul id="comment_list">
+				<!-- li는 복제해서 만들거라서 화면에 보이면 안됨, css속성에서 display:none; -->
+				<li id="item-template" class="comment-item">
+					<p class="writer">
+						<span class="item-name"></span>
+						<span class="item-date"></span>
+						<input type="button" value="삭제하기" class="delete_btn"/>
+					</p>
+					<p class="item-content"></p>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

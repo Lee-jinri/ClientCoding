@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>선택자 예제</title>
+		<style type="text/css">
+		hr{background-color:gray;}
+		ol#country li:hover{color:orange; font-weight:bold;}
+		ol#island li{color:green;}
+		
+		/*ul 리스트의 원 스타일을 바꿈*/
+		ul{list-style:circle url("../image/icon.png") outside;}
+		/*ul - food의 첫번째 리스트의 색만 빨강으로 */
+		ul#food li:first-child {color:red;}
+		</style>
+	</head>
+	<body>
+		** 여행하고 싶은 나라 **
+		<hr />
+		<ol id="country">
+			<li>중국</li>
+			<li>일본</li>
+			<li>미국</li>
+			<li>호주</li>
+		</ol>
+		** 여행하고 싶은 섬 **
+		<ol id="island">
+			<li>제주도</li>
+			<li>하와이</li>
+			<li>오키나와</li>
+			<li>발리</li>
+		</ol>
+		** 좋아하는 음식 **
+		<ul id="food">
+			<li>짬뽕</li>
+			<li>삼겹살</li>
+			<li>추어탕</li>
+		</ul>
+	</body>
+</html>

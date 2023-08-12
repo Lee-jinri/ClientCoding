@@ -1,0 +1,9 @@
+<div style="margin-bottom: 10px">
+	<h1 style="color:red">Ajax를 통해서 다른 파일을 읽어옴.</h1>
+	<h2 style="color:blue"><img src="../image/icon.png" alt="jQuery" />다른 내용은 HTML태그로 구성될 수도 있습니다.</h2>
+	<table>
+		<tr><th>산이름</th><th>주소</th><th>전화번호</th></tr>
+		<tr><td>북한산</td><td>경기 고양시 덕양구 대서문길 375</td><td>02-909-0497</td></tr>
+		<tr><td>도봉산</td><td>서울시 도봉구 도봉동</td><td>02-954-2566</td></tr>
+	</table>
+</div>

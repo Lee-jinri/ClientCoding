@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>테이블</title>
+	</head>
+	<body>
+		<!-- CSS로 표현 가능 -->
+		<table border="1"> 
+		
+			<!-- 테이블 제목 -->
+			<caption align="top">교재 가격표</caption>
+			
+			<!-- 제목 부분 -->
+			<thead>
+				<!-- 컬럼 -->
+				<tr> 
+					<th>서적명</th>
+					<th>출판사</th>
+					<th>가격</th>
+					<th>기타</th>
+				</tr>
+			</thead>
+			
+			<!-- 바닥글 -->
+			<tfoot>
+				<!-- 4행 -->
+				<tr>
+					<td>합계</td>
+					<!-- 3개의 컬럼을 합침 -->
+					<td colspan="3">107,000원</td>
+				</tr>
+			</tfoot>
+			
+			<tbody>
+				<!-- 1행 -->
+				<tr>
+					<!-- 1열 -->
+					<td>HTML5</td>
+					
+					<!-- 2열 -->
+					<td>미래닷컴</td>
+					
+					<!-- 3열 -->
+					<td>55,000원</td>
+					
+					<!-- 4열 -->
+					<td>360페이지</td>
+				</tr>
+				
+				<!-- 2행 -->
+				<tr>
+					<td>CSS3</td>
+					<td>한빛미디어</td>
+					<td>32,000원</td>
+					<!-- 2개의 행을 합침 -->
+					<td rowspan="2">&nbsp;</td>
+				</tr>
+				
+				<!-- 3행 -->
+				<tr>
+					<td>JavaScript</td>
+					<td>누리출판사</td>
+					<td>20,000원</td>
+				</tr>
+			</tbody>
+		
+	</body>
+</html>

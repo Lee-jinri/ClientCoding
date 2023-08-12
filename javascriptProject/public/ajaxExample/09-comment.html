@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- jQuery 파일을 다운받아 로드하는 방법 -->
+		<!-- <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+		
+		<!-- CDN(Content Delivery Network: 콘텐츠 전송 네트워크)을 이용하여 로드하는 방법 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0min.js"></script> -->
+		<script type="text/javascript">
+			$(function(){
+				
+				let username = $("#username").val();
+				let comment = $("#comment").val();				
+				
+				$(button).click(function(){
+					
+					if(username.replace(/\s/g,"")==""){
+						alert("이름을 입력하세요.");
+						return;
+					};
+					
+					if(comment.relace(/\s/g,"")==""){
+						alert("내용을 입력하세요.");
+						return;
+					};
+					
+					
+					
+					
+				});
+				
+				$.getJSON("../ajax/comment/comment_list.json",function(data){
+					let item = data.comment.item;
+					
+					$(item).each(function(){
+						let num = (this).num;
+						let writer = (this).writer;
+						let content = (this).content;
+						let datetime = (this).datetime;
+						
+						let span_writer = $("<span>").html(writer);
+						let span_datetime = $("<span>").html(datetime);
+						
+						let p1 = $("<p>").append(span_writer).append(span_datetime);
+						let p2 = $("<p>").html(content);
+						
+						$("#comment_list").append(p1).append(p2);
+					});
+					
+				
+				});
+				
+				
+				
+				
+			}); // 끝
+		</script>
+	</head>
+	
+	<body>
+		<div id="container">
+			<h1>jQuery comment</h1>
+			<div id="comment_write">
+				<form id="comment_form">
+					<div>
+						<label>작성자</label>
+						<input type="text" name="user_name" id="user_name">
+						<button type="submit" value="저장하기"></button>
+					</div>
+					<div>
+						<label>덧글 내용</label>
+						<textarea name="comment" id="comment"></textarea>
+					</div>
+				</form>
+			</div>
+			
+			<ul id="comment_list">
+				<li id="item-template" class="comment_item">
+					<p class="writer">
+						<span class="item-name"></span>
+						<span class="iter-date"></span>
+						<input type="button" value="삭제하기" class="delete_btn"/>
+					</p>
+				</li>
+			</ul>
+		</div>
+	</body>
+</html>

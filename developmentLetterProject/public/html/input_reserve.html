@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>input 도서 예약 대출</title>
+		<meta charset="UTF-8">
+		<!-- label에 css로 공간을 만듦 -->
+		<style type="text/css">
+			label{
+				display:inline-block;
+				width:100px;        /*너비*/
+				line-height:25px;	/* 줄 간격*/
+		</style>
+		
+	</head>	<!-- 인라인 요소 : img, a, label / block 요소 (기본적인 영역을 가짐) : hn(제목), p, div -->
+	<body>
+		<!-- 제목 -->
+		<h3>도서 예약 대출</h3>
+			
+			<!-- 이름 -->
+			<form method="get">
+				<label>성명 : </label>
+				<input type="text" name="p_name"
+ 				required="required" 
+				autofocus="autofocus" />
+			
+				
+				<!-- 전화번호 -->
+				<label>전화 :</label>
+				<input type="tel" name="p_tel" required="required"
+ 				placeholder="00*-000*-0000"
+				pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" />
+				
+				<br />
+				
+				<!-- 이메일 -->
+				<label>이메일 :</label>
+				<input type="email" name="email" 
+ 				required="required"
+ 				placeholder="***@***.***" />
+				
+				<br /><br />
+				
+				<!-- 도서명 -->
+				<label>도서명 : </label>
+				<input type="text" size="40" name="book_title" /><br />
+				
+				<!-- 예약 희망일 -->
+				<label>예약 희망일 : </label>
+				<iput type="date" name="last_date" min="2021-10-01" value="2022-04-14">
+				<br />					
+				
+				
+				<!-- 수령 시간 -->
+ 				<label>수령 시간 : </label>
+ 				<input type="time" name="time_from" min="09:00" max="18:00" value="09:00">에서
+ 				<input type="time" name="time_until" min="09:00" max="18:00" value="18:00">사이
+ 				<br />
+ 				
+ 				<hr /> <!-- 선그리깅 -->
+				<input type="submit" value="예약하기" /> 
+				<input type="reset" value="취소하기" />
+
+			</form>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<!-- [선택자 우선 순위] 인라인 스타일 시트 > 아이디 선택자 > 클래스/속성 선택자 > 태그(type) 선택자 > 전체 선택자 -->
+		<meta charset="UTF-8">
+		<title>선택자의 우선 순위</title>
+		<!-- 내부 스타일 시트 -->
+		<style type="text/css">
+			/* 타입(태그) 선택자*/
+			p{font-size:25px; font-weight:bold; color:#8041D9;}
+			/* 클래스 선택자 */
+			.text{font-size: 15px; font-family: 휴먼옛체,맑은고딕; color:rgb(255,0,121);}
+			/* 아이디 선택자*/
+			#font{font-size: 35px; font-family: "Times New Roman","Comic Sans MS";
+				color: gray;}
+		</style>
+	</head>
+	<body>
+		<h1>[CSS를 이용한 폰트]</h1>
+		<p class="text" id="font">Good Morning</p>
+		<p class="text">안녕하세요</p>
+		<!-- 인라인 스타일 시트 -->
+		<p class="text" id="font" style="color: red; font-size:50px;">Good Morning</p>
+		<p>안녕하세요</p>
+		<!-- strong 진하게 -->
+		<strong class="text" id="font">안녕하세요</strong>
+	</body>
+</html>

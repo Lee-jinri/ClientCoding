@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>z-Index 요소</title>
+	
+		<style type="text/css">
+			h1 {
+				font-family:Arial; font-size: 60px;
+				font-weight: bold; text-align: center; }
+			div {
+				width: 200px; height: 150px;
+				margin: 10px 5px; padding: 20px;
+				border: 1px solid black; color: yellow;
+			}
+			
+			/* z-index: 컨텐츠가 겹치면 가장 큰 값이 가장 위쪽 */
+			#content1 {
+				position:absolute; left: 10px; top: 10px;
+				background-color: #ff6600; z-index:1;
+			}
+			#content2 {
+				position:absolute; left:180px; top:20px;
+				background-color: #00b000; z-index:3;
+			}
+			#content3 {
+				position:absolute; left:25px; top:160px;
+				background-color: #0000ff; z-index:2;
+			}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="content1">
+			<h1>A</h1>
+		</div>
+		
+		<div id="content2">
+			<h1>B</h1>
+		</div>
+		
+		<div id="content3">
+			<h1>C</h1>
+		</div>
+	</body>
+</html>

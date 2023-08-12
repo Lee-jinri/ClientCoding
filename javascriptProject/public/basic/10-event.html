@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		<style>
+			#target{
+				height: 180px;
+				width: 500px;
+			}
+			#jumin1{width: 60px;}
+			#jumin2{width: 10px;}
+			
+			#tagExercise{width:900px; overflow:auto;}
+			#tagExercise form{width:48%; float:left; margin-right:5px;}
+			#tagExercise form > button{width: 100px;}
+			#tagExercise #resultArea{width:48%; float:left; margin-top:0px; overflow:auto; height:265px;}
+		</style>
+		
+		<script type="text/javascript">
+			function pageColor(color){
+				document.bgColor = color;
+			}
+			
+			function answer(x){
+			
+			}
+			
+			function showResult(){
+			
+					let result = document.getElementById("number1").value + document.getElementById("number2").value
+					document.getElementById("question").innerHTML = result;	
+			}
+			
+			function hiddenResult(){
+				document.getElementById("question").innerHTML = '?';
+			}
+			
+			function answer(data){
+				let answer = document.getElementById("answer");
+				answer.innerHTML = data;
+				answer.style.color = "#b900000";
+				answer.style.fontSize = "36px";
+			}
+			
+			// 클릭할 때마다 사진이 바뀜
+			// 변수를 이용합니당
+			let cnt = 0;
+			function imageChange(){
+				if(cnt == 0){
+					// 이미지 교체
+					document.getElementById("quiz").src = "../image/quiz.png";
+					cnt = 1;
+				} else {
+					document.getElementById("quiz").src = "../image/quiz2.png";
+					cnt = 0;
+				}
+			}
+			
+			function changeColor(c){
+				// div의 스타일을 바꿈
+				document.getElementById("target").style.backgroundColor = c;
+			}
+			
+			function juminfocus(){
+				// 주민번호 앞자리의 입력 개수를 변수에 넣음
+				let jumin1 = document.getElementById("jumin1").value;
+				// 주민번호 앞자리의 입력 개수가 6개면
+				if (jumin1.length == 6){
+					// 주민번호 뒷자리로 focus를 옮김
+					document.getElementById("jumin2").focus();
+				}
+			}
+			
+			function showMessage(message){
+				// span태그에 출력할거임
+				document.getElementById("msg").innerHTML = message;
+			}
+			
+			function dataChange(){
+				// 아이디로 입력한 값을 data라는 변수에 대입
+				let data = document.getElementById("id");
+				data.value = data.value.toLowerCase(); // 입력 데이터 소문자 변환
+			}
+			
+			function page(){
+				// onload를 pArea 부분에 출력할거임, 함수를 사용하지 않고 스크립트에 바로 사용할 수 없다.
+				document.getElementById("pArea").innerHTML = "파이팅~";
+			}
+			
+			function tagCheck(){
+				// data라는 변수 = div id="resultArea"의 영역, 값(value)X 영역O
+				let data = document.getElementById("resultArea");
+				// div의 html안에 = textarea에 입력했던 값을 넣는다. -> div에 html이 실행됨.
+				data.innerHTML = document.getElementById("tag").value;
+			}
+		</script>
+	</head>
+	
+	<body onload="page()">
+		<h3>onmouseover / onmouseout 이벤트 핸들러</h3>
+		<a href="#" onmouseover="pageColor('green')" onmouseout="pageColor('white')">안</a>
+		<a href="#" onmouseover="pageColor('pink')" onmouseout="pageColor('white')">녕</a>
+		<a href="#" onmouseover="pageColor('blue')" onmouseout="pageColor('white')">하</a>
+		<a href="#" onmouseover="pageColor('red')" onmouseout="pageColor('white')">세</a>
+		<a href="#" onmouseover="pageColor('yellow')" onmouseout="pageColor('white')">요</a>
+		
+		<h3>onmouseover / onmouseout 이벤트 핸들러</h3>
+		<form id="form1">
+			<input type="text" id="number1" placeholder="숫자입력"/>
+			<label> + </label>
+			<input type="text" id="number2" placeholder="숫자입력"/>
+			<label> = </label>
+			<span id="question" onmouseover="showResult()" onmouseout="hiddenResult()">?</span>
+		</form>
+		
+		<h3>넌센스 퀴즈</h3>
+		<ul>
+			<li onmouseover="answer('꿈을 갖기 위해서')" onmouseout="answer('')">우리가 수업시간에 자는 이유는?</li>
+			<li onmouseover="answer('교도소')" onmouseout="answer('')">도둑이 없는 도둑마을은?</li>
+			<li onmouseover="answer('오목')" onmouseout="answer('')">다섯 그루의 나무를 심으면?</li>
+			<li onmouseover="answer('독수리오형제')" onmouseout="answer('')">콩쥐의 깨진 독을 수리해 준 사람은?</li>
+		</ul>
+		<div id="answer">정답 보여주기</div>
+		
+		<h3>onclick 이벤트 핸들러1</h3>
+		<img id="quiz" src="../image/quiz2.png" onclick="imageChange()" />
+		
+		<h3>onclick 이벤트 핸들러2</h3>
+		<div id="target">
+			<form name="form2">
+													<!-- this.value는 나의 value="lightblue"를 나타냄 --> 
+				<input type="radio" name="color" value="lightblue" onclick="changeColor(this.value)"><label>파랑색</label>
+				<input type="radio" name="color" value="lightgreen" onclick="changeColor(this.value)"><label>녹색</label>
+			</form>
+		</div>
+		
+		<h3>keyup 이벤트 핸들러</h3>
+		<form name="form3" id="form3">
+			<label>주민등록번호: </label>
+			<input type="text" name="jumin1" id="jumin1" maxlength="6" onkeyup="juminfocus()" />
+			<label>-</label>
+			<input type="text" name="jumin2" id="jumin2" maxlength="1" />******
+		</form>
+		
+		<h3>onfocus와 onblur 이벤트 핸들러</h3>
+		<form name="form4" id="form4">
+			<label>아이디</label>
+			<!-- onfocus : 커서가 요소위에 올라갔을때, onblur : 커서가 요소밖으로 벗어났을때, onchange : 대문자를 소문자로 바꿀거임 -->
+			<input type="text" name="id" id="id" maxlength="12" onfocus="showMessage('아이디를 입력하세요.')"
+			onblur="showMessage('사용 가능한 아이디입니다.')" onchange="dataChange()" />
+			<!-- span에 출력할거임 -->
+			<span id="msg"></span>
+		</form>
+		
+		<h3>onload 이벤트 핸들러</h3>
+		<p id="pArea"></p>
+		
+		<h3>태그 연습</h3>
+		<div id="tagExercise">
+			<form>
+<!-- textarea는 입력할 수 있는 창을 만듦. textarea안의 값은 브라우저가 실행됐을 때 미리 작성되어있을 텍스트
+	들여쓰기 하면 들여쓰기까지 인식하니까 들어쓰기 하면 안댐 -->
+<textarea rows="15" cols="55" id="tag">
+<html>
+	<head></head>
+	<body>
+		<h1>안녕하세요.</h1>
+	</body>
+</html>
+</textarea><br />
+				<button type="button" onclick="tagCheck()">태그 확인</button>			
+			</form>
+			<!-- 버튼을 누른 뒤 실행문이 textarea 옆에 위치할 수 있도록 div만듦 -->
+			<div id="resultArea"></div>
+		</div>
+		
+		<h3>간단한 계산기 예제</h3>
+		<input type="text" id="value" value="0" readonly="readonly"/>
+		<button type="button" id="seven">7</button>
+		<button type="button" id="eight">8</button>
+		<button type="button" id="nine">9</button>
+		<button type="button" id="division">/</button>
+		
+		<button type="button" id="four">4</button>
+		<button type="button" id="five">5</button>
+		<button type="button" id="six">6</button>
+		<button type="button" id="multiply">*</button>
+		
+		<button type="button" id="one">1</button>
+		<button type="button" id="two">2</button>
+		<button type="button" id="three">3</button>
+		<button type="button" id="minus">-</button>
+		
+		<button type="button" id="zero">0</button>
+		<button type="button" id="plus">+</button>
+	</body>
+</html>

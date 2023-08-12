@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>입력양식</title>
+	</head>
+	<body>
+		<form>
+		<table>
+			<tr>
+				<td>아이디</td>							<!-- placeholder는 무엇을 입력해야하는지 힌트 -->
+				<td><input type="text" name="id" size="20" maxlength="12" placeholder="id 입력" /></td>
+			</tr>
+			<tr>
+				<td>비밀번호</td>
+				<td><input type="text" name="password" size="20" maxlength="12" /></td>
+			</tr>
+			<tr>
+				<td>이름</td>
+				<td><input type="text" name="name" size="20" maxlength="5" />
+					<label for="myName">이름</label><!-- 커서를 위치시킴 -->
+				</td>
+				
+			</tr>
+			<tr>
+				<td>성별</td>										<!-- checked 기본으로 설정 -->
+				<td><input type="radio" name="gender" id="man" value="man" checked="checked"/>
+					<label for="man">남자</label> <!-- for는 남자라는 글자를 눌러도 선택되는 것 -->
+				<td><input type="radio" name="gender" id="woman" value="woman" />
+					<label for="woman">여자</label> 
+				</td>
+			<tr>
+				<td>취미</td>
+				<td><input type="checkbox" name="hobby" value="climbing"/>
+					<label>등산</label>
+					<input type="checkbox" name="hobby" value="traveling"/>
+					<label>여행</label>
+					<input type="checkbox" name="hobby" value="fishing"/>
+					<label>낚시</label>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>컴퓨터 운영체제</td>
+				<td>
+					<!-- select 스크롤해서 선택 -->
+					<select name="OS" size="3" multiple>
+						<option value="windows">윈도우7</option>
+						<option value="linux">리눅스</option>
+						<option value="solrais">솔라리스</option>
+						<option value="mac">맥</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>웹 프로그래밍 과목(1)</td>
+				<td>
+					<!-- select 삼각형을 눌러서 선택 -->
+					<select name="lesson">
+						<option>JAVA</option>
+						<option>JSP</option>
+						<option>HTML5</option>						
+					</select>
+				</td>
+				<td>웹 프로그래밍 과목(2)</td>
+				<td>
+					<!-- select 삼각형을 눌러서 선택, 그룹화 -->
+					<!-- 웹이라는 그룹에 HTML5,CSS,JavaScript가 있게됨 -->
+					<select name="web">
+						<optgroup label="web">
+							<option>HTML5</option>
+							<option>CSS</option>
+							<option>JavaScript</option>
+						</optgroup>
+						
+						<optgroup label="웹 표준">
+							<option>구조</option>
+							<option>동작</option>
+							<option>표현</option>
+						</optgroup>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>기타사항</td>
+				<td><textarea rows="7" cols="30" name="exam"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<!-- 클릭시 동작 -->
+					<input type="button" value="목록" onclick="alert('목록이동')" />
+					<button type="button" value="목록" onclick="alert('클릭시 보여줄 내용')">목록</button>
+					<input type="submit" value="전송" />
+					<input type="reset" value="취소" />
+				</td>
+			</tr>
+		
+		</table>
+		</form>
+	</body>
+</html>

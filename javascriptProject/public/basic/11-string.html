@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		<script type="text/javascript">
+			let text = "http://www.hanbit.co.kr/";
+			
+			// 모든 글자를 대문자로 변환.
+			let upper = text.toUpperCase();
+			document.write("<p> 모든 글자 대문자 변환 : " + upper + "</p>");
+			
+			// 모든 글자를 소문자로 변환.
+			let lower = upper.toLowerCase();
+			document.write("<p> 모든 글자 소문자 변환 : " + lower + "</p>");
+			
+			let urlData = "http://www.hanbit.co.kr/book/bookmain.html";
+			document.write("<p> urlData 변수 선언 후 초기값으로 " + urlData + " 설정</p>");
+			
+			// 파일명 얻기
+			let value1 = urlData.lastIndexOf("/"); // 28
+			console.log(value1);
+			let value2 = urlData.lastIndexOf("."); // 37
+			console.log(value2);
+			let file = urlData.substring(value1+1, value2); // 29 ~ 37 까지
+			
+			document.write("<p>파일명: " + file + "</p>"); // bookmain
+			
+			// 확장자 얻기
+			let data = urlData.lastIndexOf("."); // .의 위치가 37
+			let ext = urlData.substring(data+1); // 38 ~ 끝까지
+			document.write("<p>확장자: " + ext + "</p>"); // html
+			
+			// 문자열 대체
+			data = "Hong's number is 123-4567.";
+			document.write("<p> 데이터 원본 : " + data + "</p>");
+			let result = data.replace("Hong's", "Kim's"); // Hong's를 Kim's 로 바꿈
+			document.write("<p> 데이터 대체 : " + result + "</p>");
+			
+			// 구분자로 분리하여 배열로 반환
+			data = "One,Two,Three,four,Five";
+			document.write("<p> 데이터 원본 : " + data + "</p>");
+			// ,를 기준으로 자름 -> 배열에 담는다
+			let array = data.split(',');
+			// array.length 는 배열의 개수
+			for (let i = 0; i < array.length; i++){
+				document.writeln(i + '-' + array[i] + '<br />');
+			}
+			
+		</script>
+	</head>
+	
+	<body>
+		
+	</body>
+</html>

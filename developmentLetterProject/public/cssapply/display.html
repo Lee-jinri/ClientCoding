@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>display- 블록과 인라인</title>
+		<style>
+			span {	/* 너비와 높이는 블록 요소일때만 유효*/
+					width: 100px; height: 100px; }
+			
+			div#none span {display: none;}
+			div#inline span {display: inline;} /* span은 원래 inline 요소라서 변함없음*/
+			div#block span {display: block;}	/* span은 원래 inline 요소인데 block 요소로 바꿈*/
+			div#inblock span {display: inline-block;} /* 블록과 인라인이 함께 */
+			
+			div #html {
+				background-color: #FFE400;
+			}
+			div #css {
+				background-color: #B5B2FF;
+				/*visibility:hidden;*/
+			}
+			div #js {
+				background-color: #D9418C;
+			}
+		</style>
+		
+		
+	</head>
+	
+	<body>
+		 <div id="none">웹 표준은 <span id="html">HTML</span> 구조,	 <span id="css">CSS</span> 디자인,
+		 <span id="js">JavaScript</span> 동작이 있습니다.</div>
+		 
+		 <div id="inline">웹 표준은 <span id="html">HTML</span> 구조,	 <span id="css">CSS</span> 디자인,
+		 <span id="js">JavaScript</span> 동작이 있습니다.</div>
+		 
+		 <div id="block">웹 표준은 <span id="html">HTML</span> 구조,	 <span id="css">CSS</span> 디자인,
+		 <span id="js">JavaScript</span> 동작이 있습니다.</div>
+		 
+		 <div id="inblock">웹 표준은 <span id="html">HTML</span> 구조,	 <span id="css">CSS</span> 디자인,
+		 <span id="js">JavaScript</span> 동작이 있습니다.</div>
+	</body>
+</html>

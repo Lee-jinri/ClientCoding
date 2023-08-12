@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<script>
+			function formVaild(){
+				let form = document.frm;
+				
+				if(document.getElementById("name").value.replace(/\s/g, "") == ""){
+					alert("이름을 입력하세요.");
+					form.name.value="";
+					form.name.focus();
+					return;
+				}
+				
+				if(form.email.value.replace(/\s/g, "") == ""){
+					alert("이메일을 입력하세요.");
+					form.email.value="";
+					form.email.focus();
+					return;
+				}
+				
+				// 체크박스나 라디오버튼에 대한 선택여부 검사
+				let chk = false;
+				for (let i = 0; i <form.rating.length; i++){
+					if(form.raing[i].checked){
+						chk = true;
+						break;
+					}
+				}
+				
+				if(!chk){
+					alert("재방문여부를 선택하세요.");
+					form.rating[0].focus();
+					return;
+				}
+				
+				if(form.comments.value.replace(/s/g, "") == ""){
+					alert("의견을 입력해주세요.");
+					form.comments.value="";
+					form.comments.focus();
+					return;
+				}
+				
+				let data = "<h3>입력한 정보는 다음과 같습니다</h3>";
+				data += "▶ 상세정보 <br />";
+				data += "이름: " + form.name.value + "<br />";
+				data += "이메일: " + form.email.value + "<br />";
+				
+				data += "<br />▶ 리뷰 <br />";
+				data += "경위: " + form.referrer.value + "<br />";
+				
+				let value;
+				for(let i=0; i<form.rating.length; i++){
+					if(form.rating[i].checked)
+						value = form.rating[i].value;
+				}
+				data += "재방문여부 : " + value + "<br />";
+				data += "의견: " + form.comments.value + "<br />";
+				data += "이메일 업데이트에 가입여부: " + ((form.subscribe.checked==true)?"예":"아니오") +"<br />";
+				
+				let view = document.getElementById("view");
+				view.className = "classView";
+				view.innerHTML = data;
+				form.reset();
+			}
+		
+		</script>
+	</head>
+	
+	<body>
+		<form name="frm">
+			<fieldset id="info">
+				<legend>상세정보</legend>
+				<label>이름: </label>
+				<input type="text" name="name" id="name" maxlength="10" /><br />
+				<label>이메일: </label>
+				<input type="text" name="email" id="email" maxlength="50" />
+			</fieldset>
+			<br />
+			<fieldset>
+				<legend>리뷰</legend>
+				<p>
+					<label for="referrer">사이트를 알게 된 경위는?</label>
+					<select name="referrer" id="referrer">
+						<option value="google">구글</option>
+						<option value="friend">친구</option>
+						<option value="advert">광고</option>
+						<option value="other">기타</option>
+					</select>
+				</p>
+				<p>
+					다시 방문하시겠습니까?<br />
+					<label><input type="radio" name="rating" value="yes" />네</label>
+					<label><input type="radio" name="rating" value="no" />아니요</label>
+					<label><input type="radio" name="rating" value="maybe" />잘 모르겠음</label>
+				</p>
+				<p>
+					<label for="comments">의견:</label><br />
+					<textarea name="comments" id="comments"></textarea>
+				</p>
+				<label><input type="checkbox" name="subscribe" checked="checked" />이메일 업데이트에 가입</label>
+				<input type="button" value="리뷰 전송" onclick="formVaild()" />
+			</fieldset>
+		</form>
+		<div id="view"></div>
+	</body>
+</html>

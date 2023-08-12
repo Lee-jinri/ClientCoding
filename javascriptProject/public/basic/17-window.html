@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- jQuery 파일을 다운받아 로드하는 방법 -->
+		<!-- <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+		
+		<!-- CDN(Content Delivery Network: 콘텐츠 전송 네트워크)을 이용하여 로드하는 방법 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0min.js"></script> -->
+		
+		<script type="text/javascript">
+			function open1(){
+				window.open('15-open.html');
+			}
+			function open2(){
+				window.open('15-open.html','','width=480, height=430, scrollbars=no, toolbar=o, menubar=no, status=no location=no');
+			}
+			
+			// 팝업의 주소를 파라미터로 전달 받음
+			function open3(url){
+				window.open(url,'mywin','width=800, height=500, scrollbars=no, toolbar=no, menubar=no, status=no, location=no');
+			}
+			
+			let win;
+			function open_window(){
+				// prompt에 입력한 값이 url에 담김
+				let url = prompt ("원하는 URL 주소를 입력하세요.");
+				if (url != ""){
+					win = window.open(url, "", "width=800,height=500, scrollbars=no, toolbar=no, menubar=no, status=no, location=no");
+				
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h1>window 객체</h1>
+		<h3>open 메소드 확인</h3>
+		<div>
+			<a href="#" onclick="open1()">새 창 열기</a>
+			<br />
+			<a href="#" onclick="open2()">팝업 창 열기(1)</a>
+			<br />
+			<!-- 파라미터를 포함한 함수의 호출 -->
+			<a href="#" onclick="open3('http://www.naver.com')">팝업 창 열기(2-1)</a>
+			<br />
+			<a href="#" onclick="open3('http://www.daum.net')">팝업 창 열기(2-2)</a>
+			<br />
+			
+			<button type="button" onclick="open_window()">Open a page with new window</button>
+			<button type="button" onclick="win.close()">Close the window</button> 
+		</div>
+	</body>
+</html>

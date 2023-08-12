@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>input 속성</title>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+			<legend>개인 정보 입력</legend>
+			<table>
+			
+						<!-- id 입력 -->
+				<tr>
+					<td><label for="name">이름</label></td>
+					<!-- id 유일값, 서버값에 전달할 때 name 사용 -->
+					<td><input type="text" name="name" id="name"  
+ 					placeholder="이름을 입력하시오" 
+ 					required="required" 
+					autofocus="autofocus" /></td>
+				</tr>
+				<!-- placeholder 힌트를 주는 것 -->
+				<!-- required 필수 입력하라는 뜻 -->	
+				<!-- 커서가 자동으로 여기에 가있음 -->
+				
+				<!-- 이메일 입력 -->
+				<tr>
+					<td><label for="email">이메일</label></td>
+					<!-- 이메일 타입은 @를 인식해서 이메일인지 확인함 -->
+					<td><input type="email" name="email" 
+ 					id="email" required="required"
+ 					placeholder="이메일을 입력하시오" />
+					</td>
+				</tr>
+				
+						<!-- 전화번호 입력 -->
+				<tr>
+					<td><label for="phone">전화</label></td>
+					<td>
+						<input type="text" name="phone" 
+						id="phone" required="required"
+						pattern="[0-1]{3}-[0-9]{4}-[0-9]{4}" 
+						title="###-####-####"
+						placeholder="전화번호를 입력하세요"/>
+						<!-- 전화번호 : 0또는 1중에 하나가 3개가 반복되야함, - , 0~9가 4개, - 0~9가 4개 -->
+					</td>
+				</tr>
+				
+				
+				<!-- 파일 선택 (이미지, 파일 확장자가 gif, jpeg, png인 것을 찾게 함) -->
+				<tr>
+					<td><label for="photo">파일선택</label></td>
+					<td><input type="file" name="photo" id="photo" accept="image/gif, image/jpeg, image/png" />
+					</td>
+				</tr>
+				
+		</table>
+			<!-- 제출 (서버로 전송) -->
+			<input type="submit" value="제출" /> 
+			<!-- 취소 -->
+			<input type="reset" value="취소" />
+		</fieldset>
+	</form>
+		
+		
+		
+	
+	
+	
+	
+	</body>
+</html>

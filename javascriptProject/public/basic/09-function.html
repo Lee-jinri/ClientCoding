@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>Insert title here</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<style type="text/css">
+			/* id = area인 div에 높이값을 지정해서 onclick이 실행돼도 높이가 부족하지 않도록 설정함 */
+			#area{ height: 180px; }
+			/* 인용구의 넓이를 지정해줬어용 */
+			div blockquote{ width: 500px; }
+		</style>
+		
+		
+		<script type="text/javascript">
+			
+			// 선언적 함수 (함수 선언식)
+			// 매개변수 없는 함수 호출
+			function greeting(){
+				// id로 html을 식별. area에 결과를 출력함. innerHTML은 HTML으로 결과를 출력할 수 있게 함.
+				document.getElementById("area").innerHTML = "<h3>안녕하세요.</h3><h3>자바스크립트</h3>";
+			}
+			
+			// 매개변수 있는 함수 호출
+			function sayHello(message){
+				
+				let text = "<h3>안녕하세요.</h3><h2>" + message + "</h2>";
+				document.getElementById("area").innerHTML = text;
+			} 
+			
+			// 두 수의 합
+			function sum(x,y){
+				let z = x + y;
+				return z;
+			}
+		
+			function printResult(){
+				// prompt의 첫번째는 입력할 값 안내, 두번째는 입력값 (입력값을 비워둠)
+				let x = parseInt(prompt ("숫자를 입력하세요.",""));
+				let y = parseInt(prompt ("숫자를 입력하세요.",""));
+				
+				let result = sum(x,y);
+				let print = x + " + " + y + " = " + result;  // 1 + 1 = 2의 형식
+				
+				// 스타일 설정하기 위해 div 영역 (id로 구분)을 변수에 대입
+				let div = document.getElementById("area");
+				div.style.color = "red";
+				div.style.fontSize = "36px";
+				div.innerHTML = print;
+				
+			}
+			
+			// 익명 함수 선언 (함수 표현식) 변수 선언 = 함수 { return ~; } 
+			// 익명함수를 total이라는 이름으로 호출할 수 있게됨.
+			let total = function(num1, num2){
+				return num1 + num2;
+			}
+			
+			function print(){
+				// div id ="area"에 출력할 수 있도록 innerHTML 사용 = total을 호출한다.
+				document.getElementById("area").innerHTML = total(6, 4);
+				
+			}
+			
+			function fontChange(){
+				// font라는 id를 줬던 input type= "color"의 값 =====> 사용자가 지정한 값~
+				let color = document.getElementById("font").value;
+				// bicycle이라는 아이디를 가진 html을 style로 색상을 바꾼다.
+				document.getElementById("bicycle").style.color = color;
+			}
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		<!-- 결과를 div에 출력 -->
+		<div id="area">결과 출력</div>
+		
+		<form>
+			<!-- 버튼 클릭으로 greeting() 함수 호출 -->
+			<button type="button" onclick="greeting()">매개변수 없는 함수 호출</button>
+			<!-- 버튼 클릭으로 sayHello('Java') 함수 호출 -->
+			<button type="button" onclick="sayHello('Java')">매개변수 있는 함수 호출</button>
+			<!-- 버튼 클릭으로 printResult() 함수 호출 -->
+			<button type="button" onclick="printResult()">두 수의 합</button>
+			
+			<!-- 버튼 클릭으로 익명함수 호출 -->
+			<button type="button" onclick="print()">두 수의 합(익명함수)</button>
+		</form>
+		
+		<div>
+			<div>
+				<blockquote id="bicycle">
+					"Life is like riding a bicycle. To keep your balance you must keep moving." - Albert Einstein
+					(인생은 자전거를 타는 것과 같다. 균형을 잡으려면 움직여야 한다. - 알베르트 아인슈타인)
+				</blockquote>
+			</div>
+			<div>
+				<!-- 인풋 타입 = 컬러는 사용자가 색상을 지정할 수 있도록 한다. -->
+				<input type = "color" id="font" />
+				<button type="button" onclick="fontChange()">글자색 변경</button>
+			</div>
+		</div>
+	
+	</body>
+</html>

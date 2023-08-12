@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>가상 클래스 선택자 확인</title>
+		<style type="text/css">
+		
+			p:first-letter{ 	/*first-letter: 태그의 첫번째 문자를 선택*/
+				font-size:25px; background-color:gray;
+				color:white; font-weight:bold;
+			}
+			p:nth-chile(even){ /* even number: 짝수*/
+				color:orange;
+			}
+			p:nth-chile(odd){ /* odd number: 홀수*/
+				color:blue;
+			}
+				
+		
+			/*content before,after : 선택한 태그 앞 뒤에 지정한 문자를 삽입*/
+			h1:before{
+				content:"☆"; 
+				color:blue;
+			}
+			h1:after{ 
+				content:"★"; 
+				color:blue;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<!-- <h1>Famous Saying</h1>
+		<p>The world is a beautiful book, but of little use to him who cannot read it.</p> -->
+		
+		<p>가장 위대한 영광은 한 번도 실패하지 않음이 아니라 실패할 때마다 다시 일어서는데에 있다.<br />
+		Our greatest glory is not in never falling, but in rising every time we fall.
+		</p>
+		<p>물방울이 바위를 뚫을 수 있는 것은 그 힘이 아니라 그 꾸준함이다.</p>
+		<p>잠깐 한 번 노력해 보는 것으로는 아무것도 이룰 수가 없다.</p>
+		<p>공부는 시간이 부족한 것이 아니라 노력이 부족한 것이다.</p>
+		<p>승자와 패자의 분리, 단 한가지는 승자는 실행하는 사람이라는 것이다.</p>
+		<p>우리가 쓰는 것 중 가장 값비싼 것은 시간이다.</p>
+		<p>시간은 돈으로도 권력으로도 살 수 없다.<br />
+		   누구에게나 평등하게 주어진 시간을 부지런히 이용한 사람이 승자가 된다. </p>
+	</body>
+</html>

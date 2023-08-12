@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>글자(문자) 스타일 속성</title>
+		<!--  구글 폰트 링크 : 무료로 사용 가능 -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Whisper&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&family=Whisper&display=swap" rel="stylesheet">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+		<style type="text/css">
+			.fontstyle{ font-size: 25px; line-height:50px; }
+			#font1{ font-variant: small-caps; }	   /* 영문 소문자를 작은 대문자로 */
+			#font2{ font-style: italic; }		   /* 기울임 */
+			#font3{ font-family: "Comic Sans MS";} /* 글씨체 */
+			#font4{ font-weight: bold;}			   /* 글씨 두껍게 */
+			/* 구글 폰트 사용 */
+			#font5{ font-family: 'Whisper', cursive;}
+			/* 첫번째 글꼴이 적용안되면 두번째 글꼴이 적용됨*/
+			#font6{ font-family: 'Roboto Condensed', sans-serif, 'Whisper', cursive; }
+			#font7{ font-size:50px;
+					font-family: 'Noto Serif KR', serif;
+					color: skyblue; }
+			
+		</style>	
+	</head>
+	<body>
+		<div class="fontstyle">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font1">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font2">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font3">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font4">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font5">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font6">Rather be dead than cool.</div>
+		<div class="fontstyle" id="font7">열정없이 사느니 차라리 죽는게 낫다.</div>
+	</body>
+</html>

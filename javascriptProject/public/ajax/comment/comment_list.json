@@ -1,0 +1,27 @@
+{
+	"comment": {
+		"item": [
+			{
+				"num":4,
+				"writer":"김철수",
+				"content": "jQuery로 Ajax를 구현하면 매우 쉽습니다.",
+				"datetime": "2022-04-22 10:21:42"
+			},{
+				"num":3,
+				"writer":"홍길동",
+				"content":"Ajax로 구현하는 덧글 예제 입니다. 잘 되는지 볼까요?",
+				"datetime":"2022-03-02 12:21:42"
+			},{
+				"num":2,
+				"writer":"이민지",
+				"content":"Hello jQuery~ Hello Ajax~",
+				"datetime":"2021-12-20 16:21:42"
+			},{
+				"num":1,
+				"writer":"김희진",
+				"content":"오늘 하루도 최선을 다해~~",
+				"datetime":"2021-10-12 09:21:42"
+			}
+		]
+	}
+}

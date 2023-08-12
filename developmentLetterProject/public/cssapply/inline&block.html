@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>인라인, 블록 요소</title>
+	
+		<style>
+			/* 인라인 요소 */
+			.inline img {
+				margin: 10px 5px;
+				border: 2px solid black; 			/* 테두리선 */
+				border-radius: 10px; 				/* 둥근 외곽*/
+				box-shadow: 5px 5px 3px 0px #ccc; 	/* 그림자 */
+			}
+			
+			/* 블록 요소*/
+			.block img {
+				margin: 10px 5px;
+				border: 2px solid black; 			/* 테두리선 */
+				border-radius: 10px; 				/* 둥근 외곽*/
+				box-shadow: 5px 5px 3px 0px #ccc; 	/* 그림자 */
+				display : block;					/* block 속성으로 바꿈 */
+			}
+		</style>
+	</head>
+	
+	<body>
+	<div class="inline">
+		<img src="../image/1.jpg">	
+		<img src="../image/2.jpg">	
+		<img src="../image/3.jpg">
+	</div>
+	
+	<div class="block">
+		<img src="../image/1.jpg">	
+		<img src="../image/2.jpg">	
+		<img src="../image/3.jpg">
+	</div>
+	</body>
+</html>

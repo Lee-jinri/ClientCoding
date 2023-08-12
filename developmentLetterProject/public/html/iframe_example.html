@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>iframe 태그 확인</title>
+	</head>
+	<body>
+		<h3>문서 내에 다른 문서를 포함하고자 할 때</h3>
+		<p>
+			<iframe src="table_example.html" width="560">
+				<p>이 브라우저는 iframe을 지원하지 않습니다</p> <!-- 생략가능 -->
+			</iframe>
+		</p>
+		
+		<h3>유튜브 동영상을 보여줄 때</h3>
+		<p>
+			<!-- 유튜브 동영상 퍼가기에 있는 주소 넣어야됨 -->
+			<iframe width="560" height="315" src="https://www.youtube.com/embed/jq791XgtZVE"></iframe>
+		</p>
+		<p>
+			<iframe width="560" height="315" src="https://www.youtube.com/shorts/utVXhRsu2CE"></iframe>
+		</p>
+		
+		<h3>다른 문서를 보고자 할 때</h3>
+		<p>
+			<iframe width="560" height="315" name="site"></iframe>
+		</p>
+		<ul>
+			<!-- 링크를 누르면 iframe에 내용이 나온당 -->
+			<li><a href="exam01_tag.html" target="site">태그</a></li>
+			<li><a href="list_example.html" target="site">list예제</a></li>
+			<li><a href="table_example.html" target="site">table태그</a></li>
+		</ul>
+	</body>
+</html>

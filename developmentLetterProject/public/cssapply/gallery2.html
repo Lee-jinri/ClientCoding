@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>갤러리2</title>
+		<style type="text/css">
+			div.gallery {
+				margin: 5px;
+				border: 1px solid #ccc;
+				/* 왼쪽 정렬 */
+				float: left;
+				width: 300px;
+				/* 박스 사이즈를 기준으로 */
+				box-sizing: border-box;
+			}
+			
+			div.gallery img{
+				width: 100%;
+				height: auto;
+			}
+			
+			div.desc{
+				padding: 15px;
+				text-align: center;
+			}
+			
+			/* 이미지에 마우스를 올리면 투명도 조절 */
+			div.gallery img:hover {
+				opacity: 0.3;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div class="gallery">
+			<a target="_blank" href="../image/01.jpg">
+				<img src="../image/01.jpg" alt="evening glow" />
+			</a>
+			<div class="desc">Evening Glow</div>
+		</div>
+		
+		<div class="gallery">
+			<a target="_blank" href="../image/02.jpg">
+				<img src="../image/02.jpg" alt="lakeside".>
+			</a>
+			<div class="desc">Lake Side</div>	
+		</div>
+		
+		<div class="gallery">
+			<a target="_blank" href="../image/03.jpg">
+				<img src="../image/03.jpg" alt="sea"/>
+			</a>
+			<div class="desc">SouthernSea</div>
+		</div>
+		
+		<div class="gallery">
+			<a target="_black" href="../image/04.jpg">
+				<img src="../image/04.jpg" alt="coast road" />
+			</a>
+			<div class="desc">Coast Road</div>	
+		</div>
+	</body>
+</html>

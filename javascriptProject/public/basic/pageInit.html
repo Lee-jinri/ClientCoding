@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>pageInit</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<!-- jQuery 파일을 다운받아 로드하는 방법 -->
+		<!-- <script type="text/javascript" src="../js/jquery-1.12.4.min.js"></script> -->
+		<script type="text/javascript" src="../js/jquery-3.6.0.min.js"></script>
+		
+		<!-- CDN(Content Delivery Network: 콘텐츠 전송 네트워크)을 이용하여 로드하는 방법 -->
+		<!-- <script src="https://code.jquery.com/jquery-3.6.0min.js"></script> -->
+		
+		<script type="text/javascript">
+			/*function h1_click(){
+				alert("H1 태그 글릭.");
+			}
+			
+			function initPage(){
+				let h1 = document.getElementById("hello");
+				
+				h1.style.color = "#0000ff";
+				h1.style.backgroundColor = "#d5d5d5";
+				h1.style.fontSize = "50px";
+				h1.style.padding = "15px";
+				h1.style.margin = "0";
+				
+				// 객체의 시작태그와 끝태긔 사이에 새로운 내용(혹은 요소)을 포함
+				h1.innerHTML = "Hello Javascript";
+				
+				// onclick 이벤트 연결
+				h1.onclick = h1_click;
+			}
+			
+			// onload 이벤트 연결
+			window.onload = initPage;*/
+			
+			window.onload = function(){
+				let h1 = document.getElementById("hello");
+				
+				h1.style.color = "#0000ff";
+				h1.style.backgroundColor = "#d5d5d5";
+				h1.style.fontSize = "50px";
+				h1.style.padding = "15px";
+				h1.style.margin = "0";
+				
+				// 객체의 시작태그와 끝태긔 사이에 새로운 내용(혹은 요소)을 포함
+				h1.innerHTML = "Hello Javascript";
+				
+				// onclick 이벤트 연결
+				h1.onclick = function(){
+					alert("H1 태그 클릭")
+				}
+					
+				// url 이동 함수
+				let btn = document.getElementById("urlMove");
+				btn.onclick = function(){
+					let data = document.getElementById("url").value;
+					// 자바스크립트 내장 객체 사용
+					location.href = data;
+				};
+				
+				let count = 1;
+				let btnChange = document.getElementById("btnChange");
+				btnChange.onclick = function(){
+					let title = document.getElementById("title");
+					console.log(count);
+					if(count == 1){
+						title.style.color = "#ffffff";
+						title.style.backgroundColor = "orange";
+						title.innerHTML = "신은 우리가 성공할 것을 요구하지 않는다. 우리가 노력할 것을 요구할 뿐이다.";
+						count++;
+					} else {
+						title.style.color = "#0000ff";
+						title.style.backgroundColor = "#ffffff";
+						title.innerHTML = "도전에 성공하는 비결은 단 하나, 결단코 포기하지 않는 일이다.";
+						count = 1;
+					}
+				};
+				
+				let btnColor = document.getElementById("btnColor");
+				btnColor.onclick = function(){
+					let li = document.getElementsByClassName("changeColor");
+					for(let i=0; i<li.length; i++){
+						li[i].style.color = "pink";
+						li[i].style.backgroundColor = "red";
+						li[i].style.width = "300px";
+					}
+				};
+				
+				let btnChoice = document.getElementById("btnChoice");
+				btnChoice.onclick = function(){
+					let size = document.getElementsByName("check").length;
+					let chk = false;
+					for(let i =0; i < size; i++){
+						if(document.getElementsByName("check")[i].checked){ // 체크가 되면 true로 바뀜 
+							chk = true;
+							break;
+						}
+					}
+					
+					if(!chk){ // chk가 true가 아니면 if문 실행
+						alert("좋아하는 과일을 선택하세요");
+						return;
+					}else{
+						let text= "내가 좋아하는 과일은 ";
+						for(let i = 0; i <size; i++){
+							if(document.getElementsByName("check")[i].checked){
+								text += document.getElementsByName("check")[i].value;
+								text += "&nbsp;&nbsp;";
+							}
+						}
+						text +="입니다";
+						document.getElementById("view").innerHTML = text;
+					}
+				};
+				
+				
+				let btnCoffee = document.getElementById("btnCoffee");
+				btnCoffee.onclick = function(){
+					let list = document.getElementById("list");
+					
+					let text='';
+					for(let i = 0; i <list.getElementsByTagName("li").length; i++){ 
+						text += list.getElementsByTagName("li")[i].innerHTML; // html작성된 글을 가져올때도 innerHTML
+						text += "&nbsp;&nbsp;"
+					}
+					document.getElementById("area").innerHTML = text;
+				};
+				
+				
+				// 특정 이벤트를 등록하고 해당 함수를 실행한다.
+				let sub = document.getElementById("form"); // form으로 해야돼영
+				// submit 은 onclick이 아니라 onsubmit 이벤트임 
+				sub.onsubmit = function(event){
+					event.preventDefault(); // submit(제출) 이벤트 해제
+					address_search();   // 새로운 함수로 기능을 바꿈
+				};
+			}; // window.onload 종료
+			
+			function address_search(){
+				let address=["홍길동", "dong1234@gmail.com"];
+				let data = document.getElementById("txt");
+				data.value = "이름\t/이메일 \n";
+				data.value += address[0] + " / " + address[1];
+			}
+			
+			
+			
+		</script>
+	</head>
+	
+	<body><!--  onload = "initPage()"-->
+		<h1 id ="hello"><!--  onclick="h1_click()"--></h1>
+		
+		<div>
+			<form name="frm">
+				<label>이동할 URL(http://포함)을 입력하세요.</label>
+				<input type="text" name="url" id="url" />
+				<button type="button" id="urlMove">확인</button>				
+			</form>
+		</div>
+		
+		<div>
+			<h1 id="title">여기를 변경해 주세요~</h1>
+			<button type="button" id="btnChange">문자 변경</button>
+		</div>
+		
+		<div>
+			<ul>
+				<li class="colorChange">first</li>
+				<li>second</li>
+				<li class="colorChange">third</li>
+			</ul>
+			<button type="button" id="btnColor">글자색 변경</button>
+		</div>
+		
+		<div id="fruit">
+			좋아하는 과일을 선택하세요
+			<input type="button" id="btnChoice" value="선택"><br/>
+			<input type="checkbox" name="check" value="오렌지">오렌지<br/>
+			<input type="checkbox" name="check" value="바나나">바나나<br/>
+			<input type="checkbox" name="check" value="딸기">딸기<br/>
+			<input type="checkbox" name="check" value="사과">사과<br/>
+			
+			<div id="view"></div>
+		</div>
+		
+		<div id="coffee">
+			<ul id="list">
+				<li>아메리카노</li>
+				<li>바닐라라떼</li>
+				<li>연유라떼</li>
+			</ul>
+			<button type="button" id="btnCoffee">커피 목록 출력</button>
+			<div id="area"></div>
+		</div>
+		
+		<div id="address">
+			<form id="form" action="example.jsp">
+				<fieldset>
+					<legend>주소록</legend>
+					<textarea name="txt" id="txt" rows="10" cols="30"></textarea><br />
+					<input type="submit" id="sub" value="불러오기" />
+				</fieldset>
+			</form>
+			
+		</div>
+	</body>
+</html>

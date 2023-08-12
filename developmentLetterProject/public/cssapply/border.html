@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>테두리 스타일 속성</title>
+		<style>
+			body > div{
+					margin-right:5px; 
+			}
+			/* 모든 box의 속성 : 가로 70px, 세로 70px, 왼쪽부터 인라인 정렬,*/
+			.box {width:70px; height:70px; float:left; color:black;
+						background-color:white; border-width:2px; border-color:black;}
+			/* n번째 박스를 만나면 */
+			.box:nth-child(1){ border-style: none; }
+			.box:nth-child(2){ border-style: solid; }
+			.box:nth-child(3){ border-style: dotted; }
+			/* dotted 보다 긴 점선*/
+			.box:nth-child(4){ border-style: dashed; }
+			.box:nth-child(5){ border-style: double; }
+			.box:nth-child(6){ border-style: groove; }
+			
+			/* width : 위아래, 왼오 / 4개 작성하면 위,오른쪽,아래,왼쪽 순서*/ 
+			.box:nth-child(7){ border-width: 2px 5px; border-style : solid; }
+			
+			/* border-width, border-style, border-color 순서*/
+			.box:nth-child(8){ border:3px solid #0088dd; border-radius:8px; }
+	
+			/* 테두리 위치 지정 가능*/
+			.box:nth-child(9){ border-top : 1px solid #0088dd;
+								border-bottom: 1px solid #0088dd;}		
+			/* 이미지에 테두리 선 */	
+			img{
+				border: 2px solid black;
+				border-radius:10px;}
+		</style>
+	</head>
+	<body style=" background-color: #FAED7D;" >
+		<div class="box">none</div>
+		<div class="box">solid</div>
+		<div class="box">dotted</div>
+		<div class="box">dashed</div>
+		<div class="box">double</div>
+		<div class="box">groove</div>
+		<div class="box">종합</div>
+		<div class="box">종합</div>
+		<div class="box">종합</div>
+		<img src="../image/1.jpg"/>
+	</body>
+</html>

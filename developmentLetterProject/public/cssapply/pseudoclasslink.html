@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>링크 관련 가상 클래스 선택자</title>
+		<style type="text/css">
+			a:link{color:blue;}      /*한 번도 클릭하지 않은 상태 : 파랑*/
+			a:visited{color:red;}    /*사이트를 방문 후 다시 돌아오면 : 빨강*/
+			a:hover{color:green;}    /*링크에 마우스를 올렸을 때*/ 
+			a:active{color:yellow;}  /*마우스를 누르고 있는 상태*/
+			
+			/*type이 text인 것에 마우스를 올리면 배경색이 하늘색이 됨*/
+			input[type="text"]:focus{ background-color:skyblue; }
+		</style>
+		
+		<!-- 자바스크립트 사용 -->
+		<script type="text/javascript">
+			function goURL(){
+				location.href = document.getElementById("url").value;
+			}  /*location(이동할때사용하는 명령어).링크 = 현재문서안에.id로요소를반환받겠다("id이름").value(텍스트에 입력한 값)*/
+		</script>
+		
+	</head>
+	<body>
+		<a href="http://www.naver.com" target="_blank">네이버</a> 사이트로 이동하기
+		
+		<form>
+			<input type="text" name="url" id="url"/>
+			<button type="button" onclick="goURL()">이동</button>
+		</form>
+	</body>
+</html>

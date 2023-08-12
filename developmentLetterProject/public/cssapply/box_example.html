@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>예제1</title>
+		
+		<style type="text/css">
+			
+			body {
+				font-size: 80%;
+				font-family: "Courier New", Courier, monospace;
+				letter-spacing: 0.15em;
+				background-color: #efefef;
+			}
+			#all {
+				width: 940px;
+				/* 전체 페이지의 위아래 여백 10px, 좌우는 auto */
+				margin : 10px auto;
+				padding: 20px;
+				border: 4px double #000;
+				background-color: #ffffff;
+			}
+			.logo {
+				width: 150px;
+				/* 로고 위여백 10px, 아래여백 25px, 가운데 배치*/
+				margin: 10px auto 25px auto; }
+			nav > ul {
+				width: 570px;
+				padding: 15px;
+				margin: 0px auto;
+				border-top: 2px solid #000;
+				border-bottom: 1px solid #000;
+				text-align: center; 
+			}
+			nav > ul > li {
+				display: inline; margin: 0px 3px;
+			}
+			nav a {
+				color: #000000;
+				/* 영문을 대문자로 표시 */
+				text-transform: uppercase;
+				/* 밑줄 제거 */
+				text-decoration: none;
+				padding: 6px 18px 5px 18px;
+				}
+			/* 그룹 선택자 (,)*/
+			nav a:hover, nav a.home {color:#cc3333; }
+			.home {color : red;}
+			section p{
+				text-align: center; width: 600px;
+				margin: 20px auto 20px auto;
+				font-weight: normal;}
+			
+		</style>
+	</head>
+	
+	<body>
+		<div id="all">
+			<header>
+				<div class="logo">
+					<img src="../image/logo.gif" alt="The Analog Specialists" />
+				</div>
+			</header>
+			<nav>
+				<ul>
+					<li><a href="#" class="home">홈</a></li>
+					<li><a href="#">판매제품</a></li>
+					<li><a href="#">수리</a></li>
+					<li><a href="#">소개</a></li>
+					<li><a href="#">연락처</a></li>
+				</ul>
+			</nav>
+			
+			<section>
+				<p>
+					<img src="../image/keys.jpg">
+				</p>
+				<p>
+					클래식 키보드, 특히 Fender Rhodes, Wurlitzer EP200, Hohner Clavinet의 판매와 수리를 전문으로 합니다.
+				</p>
+			</section>
+		</div>
+	</body>
+</html>

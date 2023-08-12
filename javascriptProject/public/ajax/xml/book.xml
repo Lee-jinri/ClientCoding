@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book>
+		<title>트렌드 코리아 2020 (서울대 소비트렌드 분석센터의 2020 전망)</title>
+		<author>강난도(교수), 전미영 외 7명 저</author>
+		<price>18,000</price>
+	</book>
+	<book>
+		<title>팩트풀니스 (우리가 세상을 오해하는 10가지 이유와 세상이 생각보다 괜찮은 이유)</title>
+		<author>한스 로슬링 저</author>
+		<price>19,800</price>
+	</book>
+	<book>
+		<title>여행의 이유 (김영하 산문)</title>
+		<author>김영하(소설가) 저</author>
+		<price>13,500</price>
+	</book>
+</books>

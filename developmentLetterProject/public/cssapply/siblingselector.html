@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>형제 선택자와 인접 형제 선택자</title>
+		<style type="text/css">
+			h1 + h2 { color:red; } /*h1 바로 다음에 있는 h2의 색을 red로*/
+			h1 ~ h2 { background-color:green; } /*h1 다음에 있는 모든 h2의 배경색을 초록으로*/
+			h1 ~ h2:hover { color:skyblue; } /*h1 다음에 있는 모든 h2에 마우스를 대면 색을 하늘색으로*/
+		</style>
+	</head>
+	<body>
+		<h1>Have a nice day</h1>
+		<h2>Have a nice day</h2> <!-- 이것만 글씨가 빨강색 -->
+		<h2>Have a nice day</h2>
+		<h3>Have a nice day</h3>
+		<h2>Have a nice day</h2>
+	</body>
+</html>

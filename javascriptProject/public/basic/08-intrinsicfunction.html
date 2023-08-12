@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>intrinsicfunction</title>
+		
+		<!-- 모바일 웹 페이지 설정 -->
+		<link rel="shortcut icon" href="../image/icon.png" />
+		<link rel="apple-touch-icon" href="../image/icon.png" />	
+	
+		<!--[if lt IE 9]>
+		<script src="../js/html5shiv.js"></script>
+		<![endif]-->
+		
+		<script type="text/javascript">
+			// eval: 문자열을 숫자로 변환하여 계산결과를 반환. 일반 문자식도 변환 후 반환
+			// let str = "100 + 1";
+			let str = prompt("수식을 입력해주세요(예: 2+4)","");
+			document.write("<h3>" + str + " = ");
+			
+			let result = eval(str);
+			document.write(result + "</h3>");
+			
+			// isFinite(123.123) 123.123은 유한한 숫자이므로 true를 반환합니다.
+			// isFinite(5/0) Infinity는 무한한 숫자이므로 false를 반환합니다.
+			document.write("결과 : " + inFinite(result));
+			
+			let value1 = "100.6";
+			// 문자열 그대로 100.6이라는 실수값을 리턴한다.
+			let num1 = parseFloat(value1);
+			// 반올림이 아니라 내림 처리 된다.
+			let num2 = parseInt(value1);
+			
+			let result1 = num1 + 1;
+			let result2 = num2 + 1;
+			document.write("<h3>result1=" + result1 + "</h3>");
+			document.write("<h3>result2=" + result2 + "</h3>");
+			
+			// isNaN(not a Number) : 숫자가 아닐 경우 true/ 숫자일 경우 false
+			function sumInt(x, y){
+				let isStrX = isNaN(x);
+				let isStrY = isNaN(y);
+				// 둘 중 하나라도 숫자가 아니라면, 실행을 중단하고 메시지를 리턴
+				if (isStrX || isStrY){
+					return "숫자 형태이거나 숫자값이 전달되어야 합니다.";
+				}
+				let result = parseInt(x) + parseInt(y);
+				return result;
+			}
+			
+			let sum1 = sumInt("a", 1);
+			let sum2 = sumInt("1","2");
+			let sum3 = sumInt(100,"5.1");
+			let sum4 = sumInt(-1, "-100");
+			
+			document.write("<h3>" + sum1 + "</h3>");
+			document.write("<h3>" + sum2 + "</h3>");
+			document.write("<h3>" + sum3 + "</h3>");
+			document.write("<h3>" + sum4 + "</h3>");
+			
+			
+			
+		</script>
+	</head>
+	
+	<body>
+		
+	</body>
+</html>
